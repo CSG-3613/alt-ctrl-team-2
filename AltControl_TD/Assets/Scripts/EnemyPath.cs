@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPath : MonoBehaviour
 {
     public List<Transform> WayPoints = new List<Transform>();
-    public float WayPointReachingRadius = 2f;
+    public float WayPointReachingRadius = 1f;
     [SerializeField]
     bool InverseOrder = false;
 
@@ -16,11 +16,11 @@ public class EnemyPath : MonoBehaviour
     }
 
     //get waypoint pos by index
-    public Vector3 GetPositionOfWayPoint(int WayPointIndex)
+    public Vector3 GetPositionOfWayPoint(Transform Agent, int WayPointIndex)
     {
-        if (WayPointIndex < 0 || WayPointIndex >= WayPoints.Count || WayPoints[WayPointIndex] == null)
+        if (WayPointIndex < 0 || WayPointIndex > WayPoints.Count || WayPoints[WayPointIndex] == null)
         {
-            return Vector3.zero;
+            return Agent.position;
         }
         return WayPoints[WayPointIndex].position;
     }
@@ -29,7 +29,7 @@ public class EnemyPath : MonoBehaviour
     {
         if (IsPathValid())
         {
-            return GetPositionOfWayPoint(WayPointIndex);
+            return GetPositionOfWayPoint(Agent, WayPointIndex);
         }
         else
         {
@@ -44,28 +44,28 @@ public class EnemyPath : MonoBehaviour
         {
             if ((Agent.position - GetDestinationOnPath(Agent, WayPointIndex)).magnitude <= WayPointReachingRadius)
             {
-                if (InverseOrder)
-                {
-                    if (WayPointIndex - 1 < 0)
+                //if (InverseOrder)
+                //{
+                    /*if (WayPointIndex - 1 < 0)
                     {
                         InverseOrder = false;
                     }
                     else
-                    {
-                        WayPointIndex -= 1;
-                    }
-                }
-                else
-                {
-                    if (WayPointIndex + 1 >= WayPoints.Count)
+                    {*/
+                        //WayPointIndex -= 1;
+                    //}
+                //}
+                //else
+                //{
+                    /*if (WayPointIndex + 1 >= WayPoints.Count)
                     {
                         InverseOrder = true;
                     }
                     else
-                    {
+                    {*/
                         WayPointIndex += 1;
-                    }
-                }
+                    //}
+                //}
                 /*else
                 {
                     WayPointIndex = WayPointIndex + 1;
