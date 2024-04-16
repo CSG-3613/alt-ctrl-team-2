@@ -8,6 +8,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,8 @@ public class FollowDestination : MonoBehaviour
     private NavMeshAgent _thisAgent;
     // public Transform Desination;
     private EnemyPath _npcPatrolPath;
+    [HideInInspector]
+    public bool EndOfPath = false;
     [SerializeField]
     private int _patrolPahtIndex = 0;
 
@@ -31,9 +34,26 @@ public class FollowDestination : MonoBehaviour
     // Move NPC to next waypoint on path on Update
     void Update()
     {
-        _patrolPahtIndex = _npcPatrolPath.UpdateDestination(this.transform, _patrolPahtIndex);
-        Vector3 NextDestination = _npcPatrolPath.GetDestinationOnPath(this.transform, _patrolPahtIndex);
-        _thisAgent.SetDestination(NextDestination);
+        
+        if(_patrolPahtIndex < _npcPatrolPath.WayPoints.Count)
+        {
+            int lastIndex = _patrolPahtIndex;
+            _patrolPahtIndex = _npcPatrolPath.UpdateDestination(this.transform, _patrolPahtIndex);
+            Vector3 NextDestination = _npcPatrolPath.GetDestinationOnPath(this.transform, _patrolPahtIndex);
+            if (lastIndex != _patrolPahtIndex)
+            {
+                _thisAgent.velocity = Vector3.zero;
+            }
+            _thisAgent.SetDestination(NextDestination);
+        }
+        else
+        {
+            EndOfPath = true;
+            Debug.Log("end");
+        }
+        
+        
+        
 
     }//end Update()
 }
