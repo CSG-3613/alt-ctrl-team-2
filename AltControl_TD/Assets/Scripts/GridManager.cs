@@ -8,6 +8,7 @@ public class GridManager : MonoBehaviour
     private GameObject _currentTower;
     [SerializeField] private GameObject[] _towerArray;
     private bool _isDeleteOn = false;
+    public Vector3 inactivePosition;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class GridManager : MonoBehaviour
         else if(gameObject.tag == "Tower")
         {
             if (_isDeleteOn) {
-                gameObject.transform.position = new Vector3(0f,-5f,0f);
+                gameObject.transform.position = inactivePosition;
             }
             
         }
