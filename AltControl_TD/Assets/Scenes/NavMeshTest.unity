@@ -2792,6 +2792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd3d72548255c64c9daeb84fc4dfd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnDelay: 2000
+  BuffDelay: 10000
+  EnemyBaseSpeed: 5
+  EnemyBaseHP: 2
+  EnemySpeedIncreaseRate: 0.5
+  EnemyHPIncreaseRate: 1
   EnemyPrefab: {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   EnemyWayPoints:
   - {fileID: 1389769050}
