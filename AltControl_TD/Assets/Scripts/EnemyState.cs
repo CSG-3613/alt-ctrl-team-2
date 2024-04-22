@@ -30,6 +30,7 @@ public class EnemyState : MonoBehaviour
         {
             _isCooked=true;
             Debug.Log("I've fallen and I can't get up");
+            //Destroy(gameObject);
         }
         if (OnPath)
         {

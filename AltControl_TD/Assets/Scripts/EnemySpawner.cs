@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -37,6 +38,8 @@ public class EnemySpawner : MonoBehaviour
         if (_timeToSpawn >= SpawnDelay)
         {
             GameObject Enemy = Instantiate(EnemyPrefab);
+            Transform EnemyTranform = Enemy.GetComponent<Transform>();
+            EnemyTranform.position = gameObject.transform.position;
             _path = Enemy.GetComponent<EnemyPath>();
             _state = Enemy.GetComponent<EnemyState>();
             for (int i = 0; i < EnemyWayPoints.Count; i++)
