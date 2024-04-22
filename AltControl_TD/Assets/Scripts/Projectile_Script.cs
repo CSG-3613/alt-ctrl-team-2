@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Projectile_Script : MonoBehaviour
 {
     private Transform _target;
-
+    private Vector3 _lastPosition;
+    public int Damage = 1;
     public float speed = 70f;
+    Vector3 dir;
+
+
+
 
     public void Seek(Transform target)
     {
         _target = target;
+        _lastPosition = _target.position;
+    }
+
+    private void Start()
+    {
+        dir = _lastPosition - transform.position;
     }
 
     void Update()
@@ -22,17 +34,33 @@ public class Projectile_Script : MonoBehaviour
             return;
         }
 
-        Vector3 dir = _target.position - transform.position;
+        
+
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+            //if(dir.magnitude <= distanceThisFrame)
+            //{
+            //    HitTarget();
+            //    return;
+            //}
+
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collision");
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.tag == "Enemy")
         {
             HitTarget();
-            return;
-        }
+            EnemyState TargetState = other.gameObject.GetComponent<EnemyState>();
+            TargetState.HitPoints = TargetState.HitPoints - Damage;
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        }
     }
+    
+
 
     void HitTarget()
     {
