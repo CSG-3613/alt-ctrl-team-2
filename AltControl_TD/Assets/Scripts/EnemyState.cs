@@ -8,7 +8,7 @@ public class EnemyState : MonoBehaviour
     private FollowDestination _enemyFollow;
     private NavMeshAgent _agent;
     private bool _isCooked = false;
-    [HideInInspector]
+    [SerializeField]
     public int HitPoints = 2;
     public float Speed = 5;
 

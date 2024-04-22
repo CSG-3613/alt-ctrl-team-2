@@ -20,6 +20,7 @@ public class Tower_Script : MonoBehaviour
 
     private Transform _target;
     private bool _isActive = false;
+    private bool _justPlaced = false;
 
     void Start()
     {
@@ -67,7 +68,6 @@ public class Tower_Script : MonoBehaviour
         }
 
         fireCooldown -= Time.deltaTime;
-
     }
 
     void Shoot()
@@ -83,5 +83,10 @@ public class Tower_Script : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    void PlacementAnimation()
+    {
+
     }
 }

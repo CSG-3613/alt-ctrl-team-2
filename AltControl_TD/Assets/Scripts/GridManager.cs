@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private GameObject[] _towerArray;
     private bool _isDeleteOn = false;
     public Vector3 inactivePosition;
+    public ParticleSystem placedParticles;
 
     void Start()
     {
@@ -51,6 +52,8 @@ public class GridManager : MonoBehaviour
             if (!tileScript.CheckIsOccupied())
             {
                 _currentTower.transform.position = new Vector3(gameObject.transform.position.x, 1.0f, gameObject.transform.position.z);
+                placedParticles.transform.position = new Vector3(gameObject.transform.position.x, 1.0f, gameObject.transform.position.z);
+                placedParticles.Play();
                tileScript.ChangeIsOccupied();
                tileScript.ChangeTower(_currentTower);
             }
