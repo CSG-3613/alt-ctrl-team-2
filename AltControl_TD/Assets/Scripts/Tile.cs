@@ -26,7 +26,9 @@ public class Tile : MonoBehaviour
 
     public bool CheckIsOccupied()
     {
+        Debug.Log(this.gameObject.name + " Was checked");
         return _isOccupied;
+        
     }
 
     public void ChangeTower(GameObject newTower)
