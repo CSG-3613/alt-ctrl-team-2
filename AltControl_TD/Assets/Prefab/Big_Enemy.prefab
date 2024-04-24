@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2415026890691756462}
   - component: {fileID: 5751067909851891158}
-  - component: {fileID: 2004908783030878351}
   - component: {fileID: 6614821974741815120}
   - component: {fileID: 423265979754323878}
   - component: {fileID: 4556533369761502157}
   - component: {fileID: 3967630530386418970}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Big_Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,39 +52,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2004908783030878351
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2159058549385916966}
-  serializedVersion: 4
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!195 &6614821974741815120
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -107,7 +79,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &423265979754323878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2415026890691756462}
     m_Modifications:
+    - target: {fileID: 17698007616273291, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 438032814907245965, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -204,6 +180,34 @@ PrefabInstance:
     - target: {fileID: 963739717108670263, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
       propertyPath: m_Name
       value: WholeBird
+      objectReference: {fileID: 0}
+    - target: {fileID: 963739717108670263, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526659193860572528, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686097760671804518, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135653682350745348, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409647601807365723, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627137847439377237, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728436144438920560, guid: a80c00c662fe74118b43ad9cbb58853c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

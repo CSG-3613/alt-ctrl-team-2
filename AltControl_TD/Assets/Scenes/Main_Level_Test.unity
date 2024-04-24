@@ -5563,8 +5563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd3d72548255c64c9daeb84fc4dfd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnDelay: 1000
-  BuffDelay: 5000
+  SpawnDelay: 1
+  BuffDelay: 5
   EnemyBaseSpeed: 1
   EnemyBaseHP: 2
   EnemySpeedIncreaseRate: 1
@@ -5573,7 +5573,6 @@ MonoBehaviour:
   - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   - {fileID: 2159058549385916966, guid: cf6cf0a26bff44f4c817cf19e895fadc, type: 3}
-  EnemyPrefab: {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   EnemyWayPoints:
   - {fileID: 1657215537}
 --- !u!4 &1598810057

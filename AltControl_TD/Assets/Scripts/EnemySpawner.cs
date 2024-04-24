@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private EnemyState _state;
     private float _enemySpeedModifier = 0;
     private int _enemyHPModifier = 0;
+    private GameObject _enemyPrefab;
     [SerializeField]
     public int SpawnDelay;
     public int BuffDelay;
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public float EnemySpeedIncreaseRate;
     public int EnemyHPIncreaseRate;
     public GameObject[] EnemyPrefabList;
-    public GameObject EnemyPrefab;
+    
     public List<Transform> EnemyWayPoints = new List<Transform>();
 
 
@@ -38,9 +39,9 @@ public class EnemySpawner : MonoBehaviour
 
         if (timePassed >= SpawnDelay)
         {
-            EnemyPrefab = EnemyPrefabList[RandomizeSelection()];
-            Debug.Log("I spawned " + EnemyPrefab.name);
-            GameObject Enemy = Instantiate(EnemyPrefab);
+           _enemyPrefab = EnemyPrefabList[RandomizeSelection()];
+            Debug.Log("I spawned " + _enemyPrefab.name);
+            GameObject Enemy = Instantiate(_enemyPrefab);
             Transform EnemyTranform = Enemy.GetComponent<Transform>();
             EnemyTranform.position = gameObject.transform.position;
             _path = Enemy.GetComponent<EnemyPath>();
