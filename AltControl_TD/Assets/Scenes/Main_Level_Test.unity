@@ -5563,12 +5563,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd3d72548255c64c9daeb84fc4dfd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnDelay: 1
-  BuffDelay: 5
+  BaseSpawnRate: 3
   EnemyBaseSpeed: 1
   EnemyBaseHP: 2
+  BuffDelay: 5
+  SpawnRateIncreaseDelay: 2
   EnemySpeedIncreaseRate: 1
   EnemyHPIncreaseRate: 1
+  SpawnRateIncreaseRate: 1
+  SpeedCap: 10
+  HPCap: 10
+  SpawnRateCap: 0.5
   EnemyPrefabList:
   - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}

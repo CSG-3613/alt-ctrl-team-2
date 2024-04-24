@@ -9,17 +9,33 @@ public class EnemySpawner : MonoBehaviour
     private EnemyPath _path;
     private float _lastSpawn = 0;
     private float _lastBuff = 0;
+    private float _lastSpawnRateUp = 0;
     private EnemyState _state;
     private float _enemySpeedModifier = 0;
     private int _enemyHPModifier = 0;
+    private float _spawnRateModifier = 0;
     private GameObject _enemyPrefab;
+    private bool _hitSpeedCap = false;
+    private bool _hitHPCap = false;
+    private bool _hitSpawnRateCap = false;
     [SerializeField]
-    public int SpawnDelay;
-    public int BuffDelay;
+    [Header("Base Values")]
+    public float BaseSpawnRate;
     public float EnemyBaseSpeed = 5;
     public int EnemyBaseHP = 2;
+    [Header("Delays Until Increase")]
+    public int BuffDelay;
+    public float SpawnRateIncreaseDelay;
+    [Header("Values to Buff By")]
     public float EnemySpeedIncreaseRate;
     public int EnemyHPIncreaseRate;
+    public float SpawnRateIncreaseRate;
+    [Header("Buff Caps")]
+    public float SpeedCap;
+    public int HPCap;
+    [Tooltip("Note: Spawn Rate caps at a minimum; a lower spawn rate value here will cause enemies to spawn faster.  It's confusing, I know, but I wasn't thinking when I made this and honestly can't be bothered to change it.")]
+    public float SpawnRateCap;
+    [Header("Enemies")]
     public GameObject[] EnemyPrefabList;
     
     public List<Transform> EnemyWayPoints = new List<Transform>();
@@ -37,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
         float timePassed = Time.realtimeSinceStartup-_lastSpawn;
         Debug.Log(timePassed);
 
-        if (timePassed >= SpawnDelay)
+        if (timePassed >= BaseSpawnRate)
         {
            _enemyPrefab = EnemyPrefabList[RandomizeSelection()];
             Debug.Log("I spawned " + _enemyPrefab.name);
@@ -57,14 +73,64 @@ public class EnemySpawner : MonoBehaviour
 
         timePassed = Time.realtimeSinceStartup - _lastBuff;
 
-        if(timePassed >= BuffDelay)
+        if(!_hitHPCap || !_hitSpeedCap)
         {
-            _enemyHPModifier += EnemyHPIncreaseRate;
-            _enemySpeedModifier += EnemySpeedIncreaseRate;
-            _lastBuff = Time.realtimeSinceStartup;
+            if (timePassed >= BuffDelay)
+            {
+                if (!_hitHPCap)
+                {
+                    if (_enemyHPModifier + EnemyBaseHP >= HPCap)
+                    {
+                        _hitHPCap = true;
+                        _enemyHPModifier = HPCap - EnemyBaseHP;
+                    }
+                    else
+                    {
+                        _enemyHPModifier += EnemyHPIncreaseRate;
+                    }
+
+                }
+                if (!_hitSpeedCap)
+                {
+                    if (_enemySpeedModifier + EnemyBaseSpeed >= SpeedCap)
+                    {
+                        _hitSpeedCap = true;
+                        _enemySpeedModifier = SpeedCap - EnemyBaseSpeed;
+                    }
+                    else
+                    {
+                        _enemySpeedModifier += EnemySpeedIncreaseRate;
+                    }
+                }
+
+
+                _lastBuff = Time.realtimeSinceStartup;
+            }
         }
-        //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
         
+
+        timePassed = Time.realtimeSinceStartup - _lastSpawnRateUp;
+
+        if (!_hitSpawnRateCap)
+        {
+            if (timePassed >= SpawnRateIncreaseDelay)
+            {
+                if(BaseSpawnRate - SpawnRateIncreaseRate <= SpawnRateCap)
+                {
+                    _hitSpawnRateCap = true;
+                    BaseSpawnRate = SpawnRateCap; 
+                }
+                else
+                {
+                    BaseSpawnRate -= SpawnRateIncreaseRate;
+                }
+                _lastSpawnRateUp = Time.realtimeSinceStartup;
+            }
+
+        }
+        
+        //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
+
     }
 
     int RandomizeSelection()
