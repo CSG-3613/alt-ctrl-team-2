@@ -5454,86 +5454,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: lengthInSec
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 0.11433051
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].time
-      value: 0.16481212
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -4.0440784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
-      value: -19.698784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0.6429971
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: -4.0440784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inWeight
-      value: 0.32679227
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
-      value: -19.698784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502315, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502324, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 2655895015681502324, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: m_RenderMode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655895015681502324, guid: 684f742743311e14d96b086a0f119674, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a125f3db7967f464aa556ffa8c1fc17d, type: 2}
     - target: {fileID: 2655895015681502325, guid: 684f742743311e14d96b086a0f119674, type: 3}
       propertyPath: m_Name
       value: Dust Particles
@@ -7458,6 +7378,7 @@ MonoBehaviour:
   HitPoints: 2
   Speed: 5
   OnPath: 1
+  destroyOnDeath: 0
 --- !u!1001 &2758268216326051186
 PrefabInstance:
   m_ObjectHideFlags: 0
