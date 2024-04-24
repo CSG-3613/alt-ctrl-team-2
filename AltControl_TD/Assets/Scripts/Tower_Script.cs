@@ -20,7 +20,7 @@ public class Tower_Script : MonoBehaviour
 
     private Transform _target;
     private bool _isActive = false;
-    private bool _justPlaced = false;
+    //private bool _justPlaced = false;
 
     void Start()
     {

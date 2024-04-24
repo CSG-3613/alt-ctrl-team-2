@@ -36,6 +36,7 @@ public class GridManager : MonoBehaviour
                 if (raycastHit.transform != null)
                 {
                     //Our custom method. 
+                    Debug.Log("I have hit something");
                     CurrentClickedGameObject(raycastHit.transform.gameObject);
                 }
             }
