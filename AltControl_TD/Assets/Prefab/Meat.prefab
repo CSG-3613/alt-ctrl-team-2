@@ -175,7 +175,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   WayPointReachingRadius: 2
-  InverseOrder: 0
+  InverseOrder: 1
 --- !u!114 &8281727831731667432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +205,4 @@ MonoBehaviour:
   HitPoints: 2
   Speed: 5
   OnPath: 1
+  destroyOnDeath: 0

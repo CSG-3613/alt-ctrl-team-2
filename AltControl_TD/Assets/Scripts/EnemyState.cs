@@ -11,8 +11,8 @@ public class EnemyState : MonoBehaviour
     [SerializeField]
     public int HitPoints = 2;
     public float Speed = 5;
-    [SerializeField]
     public bool OnPath = true;
+    public bool destroyOnDeath;
 
 
     // Start is called before the first frame update
@@ -30,7 +30,11 @@ public class EnemyState : MonoBehaviour
         {
             _isCooked=true;
             Debug.Log("I've fallen and I can't get up");
-            //Destroy(gameObject);
+            if (destroyOnDeath)
+            {
+                Destroy(gameObject);
+            }
+            
         }
         if (OnPath)
         {
