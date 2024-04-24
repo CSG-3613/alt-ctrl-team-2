@@ -7,8 +7,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private EnemyPath _path;
-    private int _timeToSpawn = 0;
-    private int _timeToBuff = 0;
+    private float _lastSpawn = 0;
+    private float _lastBuff = 0;
     private EnemyState _state;
     private float _enemySpeedModifier = 0;
     private int _enemyHPModifier = 0;
@@ -33,10 +33,10 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timeToSpawn++;
-        _timeToBuff++;
+        float timePassed = Time.realtimeSinceStartup-_lastSpawn;
+        Debug.Log(timePassed);
 
-        if (_timeToSpawn >= SpawnDelay)
+        if (timePassed >= SpawnDelay)
         {
             EnemyPrefab = EnemyPrefabList[RandomizeSelection()];
             Debug.Log("I spawned " + EnemyPrefab.name);
@@ -51,14 +51,16 @@ public class EnemySpawner : MonoBehaviour
             }
             _state.Speed = EnemyBaseSpeed + _enemySpeedModifier;
             _state.HitPoints = EnemyBaseHP + _enemyHPModifier;
-            _timeToSpawn = 0;
+            _lastSpawn = Time.realtimeSinceStartup;
         }
 
-        if(_timeToBuff >= BuffDelay)
+        timePassed = Time.realtimeSinceStartup - _lastBuff;
+
+        if(timePassed >= BuffDelay)
         {
             _enemyHPModifier += EnemyHPIncreaseRate;
             _enemySpeedModifier += EnemySpeedIncreaseRate;
-            _timeToBuff = 0;
+            _lastBuff = Time.realtimeSinceStartup;
         }
         //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
         
