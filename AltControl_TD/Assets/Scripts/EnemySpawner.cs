@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         float timePassed = Time.realtimeSinceStartup-_lastSpawn;
-        Debug.Log(timePassed);
+        //Debug.Log(timePassed);
 
         if (timePassed >= BaseSpawnRate)
         {

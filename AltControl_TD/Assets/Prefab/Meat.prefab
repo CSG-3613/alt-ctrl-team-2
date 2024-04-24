@@ -178,7 +178,7 @@ MonoBehaviour:
   HitPoints: 2
   Speed: 5
   OnPath: 1
-  destroyOnDeath: 0
+  destroyOnDeath: 1
 --- !u!1001 &3699653834218958765
 PrefabInstance:
   m_ObjectHideFlags: 0

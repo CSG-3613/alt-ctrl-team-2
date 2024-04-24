@@ -110,7 +110,7 @@ MonoBehaviour:
   HitPoints: 5
   Speed: 2
   OnPath: 1
-  destroyOnDeath: 0
+  destroyOnDeath: 1
 --- !u!114 &3967630530386418970
 MonoBehaviour:
   m_ObjectHideFlags: 0
