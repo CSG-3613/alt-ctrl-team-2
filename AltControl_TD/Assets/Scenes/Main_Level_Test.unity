@@ -5562,6 +5562,10 @@ MonoBehaviour:
   EnemyBaseHP: 2
   EnemySpeedIncreaseRate: 1
   EnemyHPIncreaseRate: 1
+  EnemyPrefabList:
+  - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
+  - {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
+  - {fileID: 2159058549385916966, guid: cf6cf0a26bff44f4c817cf19e895fadc, type: 3}
   EnemyPrefab: {fileID: 7589252549014245824, guid: ee230b62fefbf3341a02eec0eb96d165, type: 3}
   EnemyWayPoints:
   - {fileID: 1657215537}

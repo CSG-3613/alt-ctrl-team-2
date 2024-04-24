@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public int EnemyBaseHP = 2;
     public float EnemySpeedIncreaseRate;
     public int EnemyHPIncreaseRate;
+    public GameObject[] EnemyPrefabList;
     public GameObject EnemyPrefab;
     public List<Transform> EnemyWayPoints = new List<Transform>();
 
@@ -37,6 +38,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (_timeToSpawn >= SpawnDelay)
         {
+            EnemyPrefab = EnemyPrefabList[RandomizeSelection()];
+            Debug.Log("I spawned " + EnemyPrefab.name);
             GameObject Enemy = Instantiate(EnemyPrefab);
             Transform EnemyTranform = Enemy.GetComponent<Transform>();
             EnemyTranform.position = gameObject.transform.position;
@@ -57,8 +60,20 @@ public class EnemySpawner : MonoBehaviour
             _enemySpeedModifier += EnemySpeedIncreaseRate;
             _timeToBuff = 0;
         }
-        Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
+        //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
         
+    }
+
+    int RandomizeSelection()
+    {
+        int rng = Random.Range(0,6);
+        if(rng <= 2 )
+        {
+            return 0;
+        }
+        else if(rng <= 4 ) { return 1; }
+        else { return 2; }
+
     }
 
 }
