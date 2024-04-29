@@ -50,87 +50,89 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float timePassed = Time.realtimeSinceStartup-_lastSpawn;
-        //Debug.Log(timePassed);
-
-        if (timePassed >= BaseSpawnRate)
+        if (GameStates.GetInstance().GameRunning)
         {
-           _enemyPrefab = EnemyPrefabList[RandomizeSelection()];
-            Debug.Log("I spawned " + _enemyPrefab.name);
-            GameObject Enemy = Instantiate(_enemyPrefab);
-            Transform EnemyTranform = Enemy.GetComponent<Transform>();
-            EnemyTranform.position = gameObject.transform.position;
-            _path = Enemy.GetComponent<EnemyPath>();
-            _state = Enemy.GetComponent<EnemyState>();
-            for (int i = 0; i < EnemyWayPoints.Count; i++)
-            {
-                _path.WayPoints.Add(EnemyWayPoints[i]);
-            }
-            _state.Speed = EnemyBaseSpeed + _enemySpeedModifier;
-            _state.HitPoints = EnemyBaseHP + _enemyHPModifier;
-            _lastSpawn = Time.realtimeSinceStartup;
-        }
+            float timePassed = Time.realtimeSinceStartup - _lastSpawn;
+            //Debug.Log(timePassed);
 
-        timePassed = Time.realtimeSinceStartup - _lastBuff;
-
-        if(!_hitHPCap || !_hitSpeedCap)
-        {
-            if (timePassed >= BuffDelay)
+            if (timePassed >= BaseSpawnRate)
             {
-                if (!_hitHPCap)
+                _enemyPrefab = EnemyPrefabList[RandomizeSelection()];
+                Debug.Log("I spawned " + _enemyPrefab.name);
+                GameObject Enemy = Instantiate(_enemyPrefab);
+                Transform EnemyTranform = Enemy.GetComponent<Transform>();
+                EnemyTranform.position = gameObject.transform.position;
+                _path = Enemy.GetComponent<EnemyPath>();
+                _state = Enemy.GetComponent<EnemyState>();
+                for (int i = 0; i < EnemyWayPoints.Count; i++)
                 {
-                    if (_enemyHPModifier + EnemyBaseHP >= HPCap)
+                    _path.WayPoints.Add(EnemyWayPoints[i]);
+                }
+                _state.Speed = EnemyBaseSpeed + _enemySpeedModifier;
+                _state.HitPoints = EnemyBaseHP + _enemyHPModifier;
+                _lastSpawn = Time.realtimeSinceStartup;
+            }
+
+            timePassed = Time.realtimeSinceStartup - _lastBuff;
+
+            if (!_hitHPCap || !_hitSpeedCap)
+            {
+                if (timePassed >= BuffDelay)
+                {
+                    if (!_hitHPCap)
                     {
-                        _hitHPCap = true;
-                        _enemyHPModifier = HPCap - EnemyBaseHP;
+                        if (_enemyHPModifier + EnemyBaseHP >= HPCap)
+                        {
+                            _hitHPCap = true;
+                            _enemyHPModifier = HPCap - EnemyBaseHP;
+                        }
+                        else
+                        {
+                            _enemyHPModifier += EnemyHPIncreaseRate;
+                        }
+
+                    }
+                    if (!_hitSpeedCap)
+                    {
+                        if (_enemySpeedModifier + EnemyBaseSpeed >= SpeedCap)
+                        {
+                            _hitSpeedCap = true;
+                            _enemySpeedModifier = SpeedCap - EnemyBaseSpeed;
+                        }
+                        else
+                        {
+                            _enemySpeedModifier += EnemySpeedIncreaseRate;
+                        }
+                    }
+
+
+                    _lastBuff = Time.realtimeSinceStartup;
+                }
+            }
+
+
+            timePassed = Time.realtimeSinceStartup - _lastSpawnRateUp;
+
+            if (!_hitSpawnRateCap)
+            {
+                if (timePassed >= SpawnRateIncreaseDelay)
+                {
+                    if (BaseSpawnRate - SpawnRateIncreaseRate <= SpawnRateCap)
+                    {
+                        _hitSpawnRateCap = true;
+                        BaseSpawnRate = SpawnRateCap;
                     }
                     else
                     {
-                        _enemyHPModifier += EnemyHPIncreaseRate;
+                        BaseSpawnRate -= SpawnRateIncreaseRate;
                     }
-
-                }
-                if (!_hitSpeedCap)
-                {
-                    if (_enemySpeedModifier + EnemyBaseSpeed >= SpeedCap)
-                    {
-                        _hitSpeedCap = true;
-                        _enemySpeedModifier = SpeedCap - EnemyBaseSpeed;
-                    }
-                    else
-                    {
-                        _enemySpeedModifier += EnemySpeedIncreaseRate;
-                    }
+                    _lastSpawnRateUp = Time.realtimeSinceStartup;
                 }
 
-
-                _lastBuff = Time.realtimeSinceStartup;
-            }
-        }
-        
-
-        timePassed = Time.realtimeSinceStartup - _lastSpawnRateUp;
-
-        if (!_hitSpawnRateCap)
-        {
-            if (timePassed >= SpawnRateIncreaseDelay)
-            {
-                if(BaseSpawnRate - SpawnRateIncreaseRate <= SpawnRateCap)
-                {
-                    _hitSpawnRateCap = true;
-                    BaseSpawnRate = SpawnRateCap; 
-                }
-                else
-                {
-                    BaseSpawnRate -= SpawnRateIncreaseRate;
-                }
-                _lastSpawnRateUp = Time.realtimeSinceStartup;
             }
 
+            //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
         }
-        
-        //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
-
     }
 
     int RandomizeSelection()
