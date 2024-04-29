@@ -54,6 +54,8 @@ public class EnemyState : MonoBehaviour
             else
             {
                 Debug.Log("raw food");
+                GameStates.GetInstance().SetHP(GameStates.GetInstance().GetHP() - 1);
+                Debug.Log(GameStates.GetInstance().GetHP());
             }
             Destroy(gameObject);
             

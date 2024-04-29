@@ -6,16 +6,19 @@ using UnityEngine;
 
 public class GameStates : MonoBehaviour
 {
-    
+    [HideInInspector]
     public bool GameRunning = false;
     public bool IsPlayerBadAtTheVerySimpleTowerDefenseGameWeMadeAndTookAFatL = false; 
     private static GameStates _instance = new GameStates();
+    private int _gregHefflyHP;
+    private float _startTime;
     [SerializeField]
-    public int GregHefflyHP = 15;
+    public int GregHefflyBaseHP = 15;
 
     // Start is called before the first frame update
     void Start()
     {
+        _instance.SetHP(GregHefflyBaseHP);
     }
 
     // Update is called once per frame
@@ -25,6 +28,15 @@ public class GameStates : MonoBehaviour
         {
             _instance.GameRunning = true;
             Debug.Log(_instance.GameRunning);
+            _instance.SetStartTime(Time.realtimeSinceStartup);
+        }
+
+        if(_instance.GetHP() <= 0)
+        {
+            Debug.Log("a");
+            _instance.GameRunning = false;
+            Debug.Log(_instance.GameRunning);
+            _instance.SetHP(GregHefflyBaseHP);
         }
     }
 
@@ -32,5 +44,25 @@ public class GameStates : MonoBehaviour
     {
         return _instance;
     }
-   
+
+    public void SetHP(int hp)
+    {
+        _gregHefflyHP = hp;
+    }
+
+    public int GetHP()
+    {
+        return _gregHefflyHP;
+    }
+
+    public float GetStartTime()
+    {
+        return _startTime;
+    }
+
+    public void SetStartTime(float time)
+    {
+        _startTime = time;
+    }
+
 }
