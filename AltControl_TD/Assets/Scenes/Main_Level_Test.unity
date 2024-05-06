@@ -1010,6 +1010,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7967942978836644391, guid: d71fab789c9f36d409d8add6dae8dbea, type: 3}
   m_PrefabInstance: {fileID: 245966798}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &251915834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5693332439194193642, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
+  m_PrefabInstance: {fileID: 950708097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &255528700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4046,10 +4051,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1879658538866014349, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7414666103827047148, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1798707590}
   m_SourcePrefab: {fileID: 100100000, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
 --- !u!1001 &951609774
 PrefabInstance:
@@ -6692,6 +6701,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7414666103827047148, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
   m_PrefabInstance: {fileID: 950708097}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1798707589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7591821446682985272, guid: d2d9ca78ca8807848b9357847a1d36e1, type: 3}
+  m_PrefabInstance: {fileID: 950708097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798707590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798707584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3014d923dc2e75d45b7f6df1f8aa21b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  fireRate: 1
+  fireCooldown: 0
+  enemyTag: Enemy
+  partToRotate: {fileID: 1798707589}
+  bulletPrefab: {fileID: 3953740103824254774, guid: fb8a82f8e1dd75f498ec5704d84963f8, type: 3}
+  firePoint: {fileID: 251915834}
 --- !u!1 &1835314179
 GameObject:
   m_ObjectHideFlags: 0
