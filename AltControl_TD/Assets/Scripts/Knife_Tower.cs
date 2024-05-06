@@ -9,8 +9,8 @@ public class Knife_Tower : MonoBehaviour
     public float RotAngleX = 90;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Knife Collisions");
-        Debug.Log(other.gameObject.name);
+        //Debug.Log("Knife Collisions");
+        //Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
             EnemyState TargetState = other.gameObject.GetComponent<EnemyState>();

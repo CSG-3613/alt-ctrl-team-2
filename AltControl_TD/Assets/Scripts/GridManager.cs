@@ -26,7 +26,7 @@ public class GridManager : MonoBehaviour
 
             if (Input.GetKeyDown("3")) { _currentTower = _towerArray[2]; _isDeleteOn = false; }
 
-            if (Input.GetKeyDown("4")) { _isDeleteOn = true; Debug.Log(_isDeleteOn); }
+            if (Input.GetKeyDown("4")) { _isDeleteOn = true; /*Debug.Log(_isDeleteOn);*/ }
 
             //Check for mouse click 
             if (Input.GetMouseButtonDown(0))
@@ -38,7 +38,7 @@ public class GridManager : MonoBehaviour
                     if (raycastHit.transform != null)
                     {
                         //Our custom method. 
-                        Debug.Log("I have hit something");
+                        //Debug.Log("I have hit something");
                         CurrentClickedGameObject(raycastHit.transform.gameObject);
                     }
                 }
@@ -53,7 +53,7 @@ public class GridManager : MonoBehaviour
         
         if (gameObject.tag == "Tile")
         {
-            Debug.Log("hit the griddy");
+            //Debug.Log("hit the griddy");
             Tile tileScript = gameObject.GetComponent<Tile>();
             if (!tileScript.CheckIsOccupied())
             {

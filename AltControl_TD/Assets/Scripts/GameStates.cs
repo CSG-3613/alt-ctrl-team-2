@@ -11,14 +11,16 @@ public class GameStates : MonoBehaviour
     public bool IsPlayerBadAtTheVerySimpleTowerDefenseGameWeMadeAndTookAFatL = false; 
     private static GameStates _instance = new GameStates();
     private int _gregHefflyHP;
-    private float _startTime;
     [SerializeField]
+    public GameObject TheSpawner;
     public int GregHefflyBaseHP = 15;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _instance.SetHP(GregHefflyBaseHP);
+        _instance.SetSpawner(TheSpawner);
     }
 
     // Update is called once per frame
@@ -27,16 +29,16 @@ public class GameStates : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             _instance.GameRunning = true;
-            Debug.Log(_instance.GameRunning);
-            _instance.SetStartTime(Time.realtimeSinceStartup);
+            //Debug.Log("is the game running:" + _instance.GameRunning);
+            _instance.SetHP(GregHefflyBaseHP);
+            _instance.GetSpawner().GetComponent<EnemySpawner>().Reset();
         }
 
-        if(_instance.GetHP() <= 0)
+        if(_instance.GameRunning && _instance.GetHP() <= 0)
         {
-            Debug.Log("a");
+            //Debug.Log("a");
             _instance.GameRunning = false;
-            Debug.Log(_instance.GameRunning);
-            _instance.SetHP(GregHefflyBaseHP);
+            //Debug.Log(_instance.GameRunning);
         }
     }
 
@@ -55,14 +57,14 @@ public class GameStates : MonoBehaviour
         return _gregHefflyHP;
     }
 
-    public float GetStartTime()
-    {
-        return _startTime;
+    
+
+    public void SetSpawner(GameObject theSpawner){
+        TheSpawner = theSpawner;
     }
 
-    public void SetStartTime(float time)
-    {
-        _startTime = time;
+    public GameObject GetSpawner(){
+        return TheSpawner;
     }
 
 }
