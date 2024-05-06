@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameStates : MonoBehaviour
 {
@@ -14,7 +16,6 @@ public class GameStates : MonoBehaviour
     [SerializeField]
     public GameObject TheSpawner;
     public int GregHefflyBaseHP = 15;
-    public GameObject HPText;
     
 
     // Start is called before the first frame update
@@ -41,15 +42,8 @@ public class GameStates : MonoBehaviour
             _instance.GameRunning = false;
             //Debug.Log(_instance.GameRunning);
         }
-        String HPToDisplay = "0";
-        if(_instance.GetHP <= 0)
-        {
-            HPToDisplay = "0";
-        }
-        else
-        {
-            HPToDisplay = _instance.GetHP
-        }
+        
+
     }
 
     public static GameStates GetInstance()
