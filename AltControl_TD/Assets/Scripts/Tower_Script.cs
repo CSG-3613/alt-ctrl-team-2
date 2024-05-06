@@ -72,7 +72,7 @@ public class Tower_Script : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("I'm shooting");
+        //Debug.Log("I'm shooting");
         GameObject bulletObject = (GameObject)Instantiate(bulletPrefab,firePoint.position, firePoint.rotation);
         Projectile_Script bulletScript = bulletObject.GetComponent<Projectile_Script>();
 

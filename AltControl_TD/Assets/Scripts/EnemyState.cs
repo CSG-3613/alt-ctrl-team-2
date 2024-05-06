@@ -29,7 +29,7 @@ public class EnemyState : MonoBehaviour
         if(_isCooked == false && HitPoints <= 0)
         {
             _isCooked=true;
-            Debug.Log("I've fallen and I can't get up");
+            //Debug.Log("I've fallen and I can't get up");
             if (destroyOnDeath)
             {
                 Destroy(gameObject);
@@ -49,13 +49,13 @@ public class EnemyState : MonoBehaviour
         {
             if (_isCooked)
             {
-                Debug.Log("cooked food");
+                //Debug.Log("cooked food");
             }
             else
             {
-                Debug.Log("raw food");
+                //Debug.Log("raw food");
                 GameStates.GetInstance().SetHP(GameStates.GetInstance().GetHP() - 1);
-                Debug.Log(GameStates.GetInstance().GetHP());
+                //Debug.Log(GameStates.GetInstance().GetHP());
             }
             Destroy(gameObject);
             

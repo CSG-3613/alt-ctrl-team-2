@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2276,6 +2276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96baae83b363fa4eb7c073dd271956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
 --- !u!1001 &613644628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5215,7 +5216,6 @@ GameObject:
   - component: {fileID: 1361526077}
   - component: {fileID: 1361526076}
   - component: {fileID: 1361526078}
-  - component: {fileID: 1361526079}
   m_Layer: 5
   m_Name: Txt_TitleText
   m_TagString: Untagged
@@ -5349,18 +5349,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eac357e6d873714a802dca68edd8131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1361526079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361526074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96baae83b363fa4eb7c073dd271956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1364048590
@@ -7483,6 +7471,7 @@ GameObject:
   - component: {fileID: 2032465307}
   - component: {fileID: 2032465306}
   - component: {fileID: 2032465309}
+  - component: {fileID: 2032465310}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7578,7 +7567,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameRunning: 0
   IsPlayerBadAtTheVerySimpleTowerDefenseGameWeMadeAndTookAFatL: 0
-  GregHefflyHP: 15
+  TheSpawner: {fileID: 1598810055}
+  GregHefflyBaseHP: 15
+--- !u!114 &2032465310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032465305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96baae83b363fa4eb7c073dd271956d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canvas: {fileID: 928659070}
 --- !u!1001 &2048396473
 PrefabInstance:
   m_ObjectHideFlags: 0

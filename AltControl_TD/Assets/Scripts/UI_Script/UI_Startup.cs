@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UI_Startup : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject Canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,11 @@ public class UI_Startup : MonoBehaviour
     {
         if (GameStates.GetInstance().GameRunning)
         {
-            Destroy(gameObject);
+            Canvas.SetActive(false);
+        }
+        else
+        {
+            Canvas.SetActive(true);
         }
     }
 }

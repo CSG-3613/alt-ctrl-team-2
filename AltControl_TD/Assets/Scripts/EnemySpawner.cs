@@ -11,13 +11,14 @@ public class EnemySpawner : MonoBehaviour
     private float _lastBuff = 0;
     private float _lastSpawnRateUp = 0;
     private EnemyState _state;
-    private float _enemySpeedModifier = 0;
-    private int _enemyHPModifier = 0;
-    private float _spawnRateModifier = 0;
     private GameObject _enemyPrefab;
     private bool _hitSpeedCap = false;
     private bool _hitHPCap = false;
     private bool _hitSpawnRateCap = false;
+    private float _enemySpeedModifier = 0;
+    private int _enemyHPModifier = 0;
+    private float _spawnRateModifier = 0;
+    private float _baseSpawnRateMemory;
     [SerializeField]
     [Header("Base Values")]
     public float BaseSpawnRate;
@@ -44,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _baseSpawnRateMemory = BaseSpawnRate;
     }
 
     // Update is called once per frame
@@ -52,13 +53,14 @@ public class EnemySpawner : MonoBehaviour
     {
         if (GameStates.GetInstance().GameRunning)
         {
-            float timePassed = Time.realtimeSinceStartup - _lastSpawn;
+            //float startTime = (Time.realtimeSinceStartup - GameStates.GetInstance().GetStartTime());
+            float timePassed = Time.realtimeSinceStartup -  _lastSpawn;
             //Debug.Log(timePassed);
 
             if (timePassed >= BaseSpawnRate)
             {
                 _enemyPrefab = EnemyPrefabList[RandomizeSelection()];
-                Debug.Log("I spawned " + _enemyPrefab.name);
+                //Debug.Log("I spawned " + _enemyPrefab.name);
                 GameObject Enemy = Instantiate(_enemyPrefab);
                 Transform EnemyTranform = Enemy.GetComponent<Transform>();
                 EnemyTranform.position = gameObject.transform.position;
@@ -131,7 +133,7 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
-            //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier);
+            Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier + ", Spawn rate mod = " + _spawnRateModifier);
         }
     }
 
@@ -145,6 +147,18 @@ public class EnemySpawner : MonoBehaviour
         else if(rng <= 4 ) { return 1; }
         else { return 2; }
 
+    }
+    
+    public void Reset()
+    {
+        Debug.Log("Reseting");
+        _enemyHPModifier = 0;
+        _enemySpeedModifier = 0;
+        _spawnRateModifier = 0;
+        BaseSpawnRate = _baseSpawnRateMemory;
+        _hitHPCap = false;
+        _hitSpawnRateCap = false;
+        _hitSpeedCap = false;
     }
 
 }

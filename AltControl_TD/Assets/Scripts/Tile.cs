@@ -26,7 +26,7 @@ public class Tile : MonoBehaviour
 
     public bool CheckIsOccupied()
     {
-        Debug.Log(this.gameObject.name + " Was checked");
+        //Debug.Log(this.gameObject.name + " Was checked");
         return _isOccupied;
         
     }
