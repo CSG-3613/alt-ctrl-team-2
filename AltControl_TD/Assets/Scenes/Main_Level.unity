@@ -281,7 +281,8 @@ PrefabInstance:
       value: Tower_A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8516874367225080990, guid: ab9600fb39963d2459f8b3dfa2c2ab71, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9600fb39963d2459f8b3dfa2c2ab71, type: 3}
