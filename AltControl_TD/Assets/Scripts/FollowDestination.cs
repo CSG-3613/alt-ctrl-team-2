@@ -35,7 +35,7 @@ public class FollowDestination : MonoBehaviour
     void Update()
     {
         
-        if(_patrolPahtIndex < _npcPatrolPath.WayPoints.Count)
+        if(_patrolPahtIndex+1 < _npcPatrolPath.WayPoints.Count)
         {
             int lastIndex = _patrolPahtIndex;
             _patrolPahtIndex = _npcPatrolPath.UpdateDestination(this.transform, _patrolPahtIndex);
@@ -51,7 +51,7 @@ public class FollowDestination : MonoBehaviour
             EndOfPath = true;
             Debug.Log("end");
         }
-        
+        Debug.Log(_patrolPahtIndex + "of" + _npcPatrolPath.WayPoints.Count);
         
         
 

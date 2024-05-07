@@ -147,7 +147,7 @@ MonoBehaviour:
   WayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  WayPointReachingRadius: 2
+  WayPointReachingRadius: 0.2
   InverseOrder: 1
 --- !u!114 &8281727831731667432
 MonoBehaviour:

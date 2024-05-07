@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WayPoints: []
-  WayPointReachingRadius: 1
+  WayPointReachingRadius: 0.2
   InverseOrder: 0
 --- !u!114 &4556533369761502157
 MonoBehaviour:
