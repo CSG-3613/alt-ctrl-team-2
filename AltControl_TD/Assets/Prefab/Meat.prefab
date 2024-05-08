@@ -179,6 +179,7 @@ MonoBehaviour:
   Speed: 5
   OnPath: 1
   destroyOnDeath: 1
+  scoreText: {fileID: 8744937259055545219, guid: 1fc7c8e7615a196488b59e389bab2673, type: 3}
 --- !u!1001 &3699653834218958765
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2905383681701223163}
   - component: {fileID: -8127481129203826734}
   m_Layer: 0
-  m_Name: Tower_B
+  m_Name: Salt_Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

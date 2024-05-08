@@ -76,7 +76,7 @@ public class Grill_Script : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("I shot");
+        //Debug.Log("I shot");
         GameObject bulletObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Projectile_Script bulletScript = bulletObject.GetComponent<Projectile_Script>();
         if (bulletScript != null) { bulletScript.Seek(_target); }

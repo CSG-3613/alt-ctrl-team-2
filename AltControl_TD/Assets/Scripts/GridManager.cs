@@ -26,7 +26,13 @@ public class GridManager : MonoBehaviour
 
             if (Input.GetKeyDown("3")) { _currentTower = _towerArray[2]; _isDeleteOn = false; }
 
-            if (Input.GetKeyDown("4")) { _isDeleteOn = true; /*Debug.Log(_isDeleteOn);*/ }
+            if (Input.GetKeyDown("4")) { _currentTower = _towerArray[3]; _isDeleteOn = false; }
+
+            if (Input.GetKeyDown("5")) { _currentTower = _towerArray[4]; _isDeleteOn = false; }
+
+            if (Input.GetKeyDown("6")) { _currentTower = _towerArray[5]; _isDeleteOn = false; }
+
+            if (Input.GetKeyDown("7")) { _isDeleteOn = true; /*Debug.Log(_isDeleteOn);*/ }
 
             //Check for mouse click 
             if (Input.GetMouseButtonDown(0))

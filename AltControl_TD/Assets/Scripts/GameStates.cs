@@ -34,6 +34,7 @@ public class GameStates : MonoBehaviour
             //Debug.Log("is the game running:" + _instance.GameRunning);
             _instance.SetHP(GregHefflyBaseHP);
             _instance.GetSpawner().GetComponent<EnemySpawner>().Reset();
+            Instantiate(powerUp);
         }
 
         if(_instance.GameRunning && _instance.GetHP() <= 0)

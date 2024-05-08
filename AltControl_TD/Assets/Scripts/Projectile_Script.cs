@@ -49,8 +49,8 @@ public class Projectile_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
-        Debug.Log(other.gameObject.name);
+        //Debug.Log("collision");
+        //Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
             HitTarget();
@@ -64,7 +64,7 @@ public class Projectile_Script : MonoBehaviour
 
     void HitTarget()
     {
-        Debug.Log("Got em");
+        //Debug.Log("Got em");
         Destroy(gameObject);
     }
 }

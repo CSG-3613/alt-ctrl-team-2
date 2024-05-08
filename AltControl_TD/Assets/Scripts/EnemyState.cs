@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,7 +14,6 @@ public class EnemyState : MonoBehaviour
     public float Speed = 5;
     public bool OnPath = true;
     public bool destroyOnDeath;
-
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,7 @@ public class EnemyState : MonoBehaviour
                 GameStates.GetInstance().SetHP(GameStates.GetInstance().GetHP() - 1);
                 //Debug.Log(GameStates.GetInstance().GetHP());
             }
+
             Destroy(gameObject);
             
         }

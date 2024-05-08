@@ -133,7 +133,7 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
-            Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier + ", Spawn rate mod = " + _spawnRateModifier);
+            //Debug.Log("HP mod = " + _enemyHPModifier + ", Speed mod = " + _enemySpeedModifier + ", Spawn rate mod = " + _spawnRateModifier);
         }
     }
 

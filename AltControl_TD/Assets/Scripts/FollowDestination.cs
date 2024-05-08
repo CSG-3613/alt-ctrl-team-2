@@ -51,7 +51,7 @@ public class FollowDestination : MonoBehaviour
             EndOfPath = true;
             Debug.Log("end");
         }
-        Debug.Log(_patrolPahtIndex + "of" + _npcPatrolPath.WayPoints.Count);
+       // Debug.Log(_patrolPahtIndex + "of" + _npcPatrolPath.WayPoints.Count);
         
         
 
